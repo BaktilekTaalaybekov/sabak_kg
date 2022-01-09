@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title_k }}</title>
+</head>
+<body>
+
+<h1>{{ title_k }}</h1>
+
+{% for item in lessons_k %}
+    <div>
+        <p>{{ item.title }}</p>
+        <p>{{ item.video }}</p>
+        <p>{{ item.lecturer }}</p>
+        <p>{{ item.description }}</p>
+        <p>{{ item.created_at|date:"Y-m-d H:i" }}</p>
+    </div>
+    <hr>
+{% endfor %}
+
+</body>
+</html>

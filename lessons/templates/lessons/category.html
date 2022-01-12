@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>{{ title_k }}</title>
+    <title>{{ category_k_gk.title }}</title>
 </head>
 <body>
 
@@ -26,17 +26,17 @@
 </nav>
 
 <div class="container mt-3">
-    <h1>{{ title_k }}</h1>
     <div class="row">
+
     <div class="col-md-4">
         <div class="list-group">
-            {% for item in categories_k %}
+            {% for item in categories_k_gk %}
             <a href="/category/{{ item.pk }}" class="list-group-item list-group-item-action">{{ item.title }}</a>
             {% endfor %}
         </div>
     </div>
         <div class="col-md-8">
-            {% for item in lessons_k %}
+            {% for item in lessons_k_gk %}
                 <div class="card mb-3">
                     <div class="card-header">
                         Категория: {{ item.category }}

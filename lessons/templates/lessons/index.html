@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}
+    {{ title_k }}
+{% endblock %}
+
 {% block sidebar %}
     {% include 'inc/_sidebar.html' %}
 {% endblock %}
@@ -8,7 +12,7 @@
     {% for item in lessons_k %}
         <div class="card mb-3">
             <div class="card-header">
-                Категория: <a href="{% url 'category' item.category.pk %}">{{ item.category }}</a>
+                Категория: <a href="{{ item.category.get_absolute_url }}">{{ item.category }}</a>
             </div>
             <div class="card-body">
                 <div class="media">
@@ -21,7 +25,7 @@
                         </video>
                         <h5 class="card-title">Лектор: {{ item.lecturer }}</h5>
                         <h5 class="card-title">Описание урока: {{ item.description }}</h5>
-                        <a href="#" class="btn btn-primary">Домашнее задание</a>
+                        <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Домашнее задание</a>
                     </div>
                 </div>
 

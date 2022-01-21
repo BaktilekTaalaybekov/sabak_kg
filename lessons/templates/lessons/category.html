@@ -1,13 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}
-    <div class="list-group">
-        {% for item in categories_k %}
-            <a href="{% url 'category' item.pk %}"
-               class="list-group-item list-group-item-action">{{ item.title }}</a>
-        {% endfor %}
-    </div>
-{% endblock %}
+{% block title %} Category {% endblock %}
 
 {% block sidebar %}
     {% include 'inc/_sidebar.html' %}
@@ -30,7 +23,7 @@
                         </video>
                         <h5 class="card-title">Лектор: {{ item.lecturer }}</h5>
                         <h5 class="card-title">Описание урока: {{ item.description }}</h5>
-                        <a href="#" class="btn btn-primary">Домашнее задание</a>
+                        <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Домашнее задание</a>
                     </div>
                 </div>
 

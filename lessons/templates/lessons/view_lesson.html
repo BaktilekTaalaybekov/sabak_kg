@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ lesson_item.title_k }}
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="card mb-3">
+        <div class="card-header">
+            Категория: <a href="{{ lesson_item.category.get_absolute_url }}">{{ lesson_item.category }}</a>
+        </div>
+        <div class="card-body">
+            <div class="media">
+                <div class="media-body">
+                    <h5 class="card-title">{{ lesson_item.title }}</h5>
+                    <p class="card-text">{{ lesson_item.video }}</p>
+                    <video controls width="100%" height="100%">
+                        <source src="{{ lesson_item.video.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h5 class="card-title">Лектор: {{ lesson_item.lecturer }}</h5>
+                    <h5 class="card-title">Описание урока: {{ lesson_item.description }}</h5>
+                    <a href="#" class="btn btn-primary">Домашнее задание</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer text-muted">
+            {{ item.created_at|date:"Y-m-d H:i" }}
+        </div>
+    </div>
+{% endblock %}

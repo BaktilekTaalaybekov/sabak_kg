@@ -4,7 +4,7 @@ from .models import Lesson, Category
 
 
 class LessonAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'video', 'category', 'lecturer', 'description', 'created_at', 'is_published',)
+    list_display = ('id', 'title', 'video', 'home_work', 'category', 'lecturer', 'created_at', 'is_published',)
     list_display_links = ('id', 'title')
     search_fields = ('title', 'lecturer')
     list_editable = ('is_published', 'category')

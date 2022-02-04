@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Lesson, Category
+from .forms import LessonForm
 
 
 def index(request):
@@ -22,3 +23,19 @@ def view_lesson(request, lesson_id):
     # lesson_item = Lesson.objects.get(pk=lesson_id)
     lesson_item = get_object_or_404(Lesson, pk=lesson_id)
     return render(request, 'lessons/view_lesson.html', {"lesson_item": lesson_item})
+
+
+def add_lesson(request):
+    if request.method == 'POST':
+        form = LessonForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Lesson.objects.create(**form.cleaned_data)
+            lesson = form.save()
+            return redirect(lesson)
+
+            form = LessonForm()
+
+    else:
+        form = LessonForm()
+
+    return render(request, 'lessons/add_lesson.html', {'form': form})

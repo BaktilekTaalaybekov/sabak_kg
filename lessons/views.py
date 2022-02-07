@@ -29,7 +29,6 @@ def add_lesson(request):
     if request.method == 'POST':
         form = LessonForm(request.POST, request.FILES)
         if form.is_valid():
-            # Lesson.objects.create(**form.cleaned_data)
             lesson = form.save()
             return redirect(lesson)
 
